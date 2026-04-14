@@ -71,7 +71,7 @@ Simulation:
     # Measured in blocks from the possible movement
     # We account for Optifine by switching trig tables but dropping this to 0.001 will reduce FastMath
     # flagging the anticheat if this compensation doesn't work...
-    threshold: 0.001
+    threshold: 0.01
     # How large of a violation in a tick before the player gets immediately setback?
     # -1 to disable
     immediate-setback-threshold: 0.1
@@ -110,10 +110,9 @@ RotationPlace:
 # Grim accounts for buggy netcode here... hard to false even when spamming right click and offhand button
 # Much more stable than other anticheats, but please report any falses... I have fixed a ton of netcode issues here.
 NoSlow:
-    # How much of an offset is "cheating"
     # By default this is lower than other offs
     # Flags by 0.03-0.2 consistently with NoSlow on
-    threshold: 0.001
+    threshold: 0.01
     # Setback fast on the first item to remove any advantage NoSlow gives
     setbackvl: 5
     # Decay's when the player uses an item AND is slowed by it
@@ -124,7 +123,7 @@ Knockback:
     setback-decay-multiplier: 0.999
     # How large of an offset from the player's velocity should we create a violation for?
     # Measured in blocks from the possible velocity
-    threshold: 0.001
+    threshold: 0.01
     # How large of a violation in a tick before the player gets immediately setback?
     # -1 to disable
     immediate-setback-threshold: 0.1
@@ -135,7 +134,7 @@ Knockback:
     max-ceiling: 4
 
 Explosion:
-    threshold: 0.001
+    threshold: 0.01
     setbackvl: 3
 
 TimerA:
