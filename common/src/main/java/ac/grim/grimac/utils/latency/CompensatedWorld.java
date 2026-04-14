@@ -709,7 +709,7 @@ public class CompensatedWorld implements PacketWorld {
 
     public void setDimension(DimensionType dimension, User user) {
         // No world height NBT
-        if (PacketEvents.getAPI().getServerManager().getVersion().isOlderThan(ServerVersion.V_1_17)) return;
+        if (dimension == null || PacketEvents.getAPI().getServerManager().getVersion().isOlderThan(ServerVersion.V_1_17)) return;
 
         minHeight = dimension.getMinY();
         maxHeight = minHeight + dimension.getHeight();

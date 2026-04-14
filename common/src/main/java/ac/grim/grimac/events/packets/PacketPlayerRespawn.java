@@ -233,7 +233,8 @@ public class PacketPlayerRespawn extends PacketListenerAbstract {
         }
 
         ClientVersion version = PacketEvents.getAPI().getServerManager().getVersion().toClientVersion();
-        return respawn.getDimensionType().getId(version) != player.dimensionType.getId(version)
+        return player.dimensionType == null
+                || respawn.getDimensionType().getId(version) != player.dimensionType.getId(version)
                 || !Objects.equals(respawn.getDimensionType().getName(), player.dimensionType.getName());
     }
 }

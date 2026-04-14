@@ -140,9 +140,9 @@ public final class PlayerBaseTick {
         player.fluidHeight.clear();
         updateInWaterStateAndDoWaterCurrentPushing(player);
 
-        final boolean fastLava = SERVER_SUPPORT_ENVIRONMENT_ATTRIBUTES && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_11)
+        final boolean fastLava = player.dimensionType != null && (SERVER_SUPPORT_ENVIRONMENT_ATTRIBUTES && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_11)
                 ? player.dimensionType.getAttributes().getOrDefault(EnvironmentAttributes.GAMEPLAY_FAST_LAVA)
-                : player.dimensionType.isUltraWarm();
+                : player.dimensionType.isUltraWarm());
 
         final double multiplier = fastLava ? 0.007 : 0.0023333333333333335;
         // 1.15 and below clients use block collisions to check for being in lava
